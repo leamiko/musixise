@@ -1,5 +1,5 @@
 # musixise 稀客
-
+it's a historic music live experience, with minimum network consumption, premium sound feedback, and ~zero timing latency to the audience.
 # musixise-api-server
 api接口项目
 
