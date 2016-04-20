@@ -1,5 +1,5 @@
 # musixise 稀客
-
+it's a historic music live experience, with minimum network consumption, premium sound feedback, and ~zero timing latency to the audience.
 # musixise-api-server
 api接口项目
 
@@ -16,7 +16,8 @@ socket-io项目
 音乐人用户采集客户端
 
 
-# musixise-io-server,musixise-m-node,musixise-www-node基于node,打开项目指令cd dir -> npm start
+# 项目开启方法
+musixise-io-server,musixise-m-node,musixise-www-node基于node,打开项目指令cd dir -> npm start
 
 
 # host文件配置 
@@ -66,3 +67,7 @@ server {
         proxy_set_header X-Forward-For $remote_addr;
     }
 }
+
+# MIDI配置
+有MIDI乐器直接插入并正常配置
+如果没有midi乐器，可临时下载VMPK, 在edit下面选择Midi Connections, MIDI In Driver选择Network， MIDI OUT Driver选择CoreMIDI，Output MIDI Connection 选择 IAC Driver Bus
