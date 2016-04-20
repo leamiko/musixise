@@ -1,0 +1,85 @@
+
+—— MUSIXISER 音乐人相关接口——
+
+#音乐人注册
+musixiser.register
+	*nickname,  *password, realname, tel, email, birth, gender, s_avatar, l_avatar,nation
+	id
+
+#音乐人审查
+(musixiser.validateReg)
+	id/nickname, isMaster
+	id
+
+#音乐人更新个人信息
+musixiser.updateInfo
+	*nickname,  *password, realname, tel, email, birth, gender, s_avatar, l_avatar,nation
+	id
+
+#音乐人登陆
+musixiser.login
+	nickname, tel, email
+	token?
+
+#音乐人开始演出
+musixiser.onStage
+	id/token/nickname
+
+#音乐人中止演出
+musixiser.offStage
+	id/token/nickname
+
+#音乐人登出
+musixiser.logout
+	id/token/nickname
+
+#获取正在演出的音乐人列表
+musixiser.getOnStageList
+	none
+	return list: nickname,id,gender,s_avatar,l_avatar,isMaster,nation,audienceNum
+
+#储存音乐人表演的Midi信息
+musixiser.saveMidi
+	id/token/nickname, MidiStr
+
+#获取音乐人过去的演出作品列表（midi或其他形式返回）
+musixiser.pastWorksList
+	id/token/nickname, page, limit
+	return list: mp3/midifile
+
+—— Audience 听众相关接口——
+
+#用户注册
+audience.register()
+	nickname password
+
+#用户第三方登陆
+audience.loginFromThirdParty()
+
+#用户登陆
+audience.login()
+
+#用户登出
+audience.logout()
+
+#用户进入某演出
+audience.joinStage()
+	audienceInfo,musixiserInfo
+
+#用户离开某演出
+audience.leaveStage()
+	audienceInfo,musixiserInfo
+
+#用户订阅/跟随 某位音乐人
+audience.subscribeToMusixiser()
+	audienceInfo,musixiserInfo
+
+#获取用户订阅的音乐人列表
+audience.getSubscribedMusixiserList()
+	audienceInfo
+
+
+—— on App Init app启动接口——
+app.getInitRouter()
+	none
+	{}

@@ -4,6 +4,7 @@ $(function() {
     var ready = false; //need to assure the midi instrument has connected, here, we ask the musician to play from C to C.
     var matchPattern = [0, 2, 4, 5, 7, 9, 11, 12];
     var testMatch = [0, 0, 0, 0, 0, 0, 0, 0];
+    var record = '';
     var socket = io('http://io.musixise.com:3002');
     //www.musixise.com/stage/fzw  => fzw (as stage name for socket)
     var myname = location.href.match(/.*?stage\/(.*)/)[1];
@@ -17,6 +18,7 @@ $(function() {
             data.message.from = myname;
             var msg = JSON.stringify(data.message);
             // console.log(msg); // it's a string
+            record += msg;
             socket.emit('new message', msg);
         } else { //test 大调音阶 ，视为ready，相当于是个验证码吧~  弹了大调音阶才能给听众传
             if (data.message.midi_msg[0] == 144) {
