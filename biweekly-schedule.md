@@ -16,7 +16,7 @@
   * tech:
     * 视觉提供(Web主页，音乐人主播页,听众list,听众stage,iOS icon)
     * 页面接口流程验收
-    * iOS hybrid 基础开发 
+    * iOS hybrid 基础开发 (webview基础,分享控件(copy),loading控件,showToast,showDialog)
     * iOS sound engine 插件开发
 
 #### 06.06 - 06.19
@@ -33,17 +33,23 @@
     * 整体调试，测试
 
 #### 07.18 - 07.31
-  
+  * tech:
+    * 服务器购买部署
+    * 域名备案等
 
 #### 08.01 - 08.14
-
-
+  * tech:
+    * 内测调试 
+  * operation:
+    * CC talk
 #### 08.15 - 08.28
-
-
+  * tech:
+    * 内测调试
+  * operation:
+    * other talk 
 #### 08.29 - 09.11
   * tech: 
-    * 上线，申请app store
+    * 9.8 上线，申请app store
 
 #### 09.12 - 09.25
   * tech:
