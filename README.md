@@ -21,6 +21,9 @@ musixise-io-server,musixise-m-node,musixise-www-node基于node,打开项目指�
 
 
 # host文件配置 
+
+```
+
 127.0.0.1		localhost
 255.255.255.255	broadcasthost
 ::1				localhost
@@ -31,7 +34,10 @@ fe80::1%lo0		localhost
 127.0.0.1 io.musixise.com    #socketio server    e.g. not necessary though, http://io.musixise.com:3002
 127.0.0.1 api.musixise.com   #api server
 
+```
+
 # 反向代理基于nginx，nginx host文件具体配置:
+``` 
 server {
     listen        80;
     server_name   www.musixise.com;
@@ -67,6 +73,8 @@ server {
         proxy_set_header X-Forward-For $remote_addr;
     }
 }
+```
+
 
 # MIDI配置
 有MIDI乐器直接插入并正常配置
