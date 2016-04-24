@@ -41,7 +41,7 @@ musixiser.offStage
 musixiser.logout
 	token
 
-#储存音乐人表演的作品信息 P2
+#储存音乐人表演的作品信息 P0
 musixiser.saveWork
 	token, MidiStr,workId
 
