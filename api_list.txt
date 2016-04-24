@@ -1,85 +1,99 @@
 
-—— MUSIXISER 音乐人相关接口——
+—— MUSIXISER 音乐人相关接口 ——
 
-#音乐人注册
+#音乐人注册 P0
 musixiser.register
-	*nickname,  *password, realname, tel, email, birth, gender, s_avatar, l_avatar,nation
-	id
+	*nickname,  *password, realname, tel, email, birth, gender, smallAvatar, largeAvatar,nation
+	token
+	
+#音乐人加v(后台) P1
+musixiser.masterize(大师化)
+	isMaster(默认为0，大师为1)
 
-#音乐人审查
-(musixiser.validateReg)
-	id/nickname, isMaster
-	id
-
-#音乐人更新个人信息
+#音乐人获取个人信息 P2
+#musixiser.getInfo
+	token
+	nickname, realname, tel, email, birth, gender, smallAvatar, largeAvatar,nation
+	
+#音乐人更新个人信息 P2
 musixiser.updateInfo
-	*nickname,  *password, realname, tel, email, birth, gender, s_avatar, l_avatar,nation
-	id
+	*token, nickname,  password, realname, tel, email, birth, gender, smallAvatar, largeAvatar,nation
 
-#音乐人登陆
+#音乐人更新密码 P1
+#musixiser.changePassword
+	token, oldPassword, newPassword
+
+#音乐人登陆 P0
 musixiser.login
-	nickname, tel, email
-	token?
+	nickname/tel/email, password
+	token
 
-#音乐人开始演出
+#音乐人开始演出 P0
 musixiser.onStage
-	id/token/nickname
+	token
+	workId
 
-#音乐人中止演出
+#音乐人中止演出 P0
 musixiser.offStage
-	id/token/nickname
+	token,workId
 
-#音乐人登出
+#音乐人登出 P0
 musixiser.logout
-	id/token/nickname
+	token
 
-#获取正在演出的音乐人列表
-musixiser.getOnStageList
-	none
-	return list: nickname,id,gender,s_avatar,l_avatar,isMaster,nation,audienceNum
+#储存音乐人表演的作品信息 P2
+musixiser.saveWork
+	token, MidiStr,workId
 
-#储存音乐人表演的Midi信息
-musixiser.saveMidi
-	id/token/nickname, MidiStr
-
-#获取音乐人过去的演出作品列表（midi或其他形式返回）
+#获取音乐人过去的演出作品列表（midi或其他形式返回）P2
 musixiser.pastWorksList
-	id/token/nickname, page, limit
+	token, page, limit
 	return list: mp3/midifile
 
 —— Audience 听众相关接口——
 
-#用户注册
+#用户注册 P2
 audience.register()
 	nickname password
-
-#用户第三方登陆
+	token
+	
+#用户第三方登陆 P2
 audience.loginFromThirdParty()
-
-#用户登陆
-audience.login()
-
-#用户登出
+	
+	token
+#用户登陆 P2
+audience.normalLogin()
+	nickname password
+	token
+#用户登出 P2
 audience.logout()
-
-#用户进入某演出
+	token
+#获取正在演出的音乐人列表 P0
+audience.getOnStageList
+	page,size
+	return list: nickname,id,gender,s_avatar,l_avatar,isMaster,nation,audienceNum
+	
+#用户进入某演出 P1
 audience.joinStage()
-	audienceInfo,musixiserInfo
+	audienceCookie,musixiserId
 
-#用户离开某演出
+#用户离开某演出 P1
 audience.leaveStage()
-	audienceInfo,musixiserInfo
+	audienceCookie,musixiserInfo
 
-#用户订阅/跟随 某位音乐人
+#用户订阅/跟随 某位音乐人 P2
 audience.subscribeToMusixiser()
 	audienceInfo,musixiserInfo
 
-#获取用户订阅的音乐人列表
+#获取用户订阅的音乐人列表 P2
 audience.getSubscribedMusixiserList()
 	audienceInfo
 
+#获取某个音乐人的过往作品 P2
+audience.getWorksListOfSubscribedMusixiser()
+	musixiserInfo
 
 —— on App Init app启动接口——
-app.getInitRouter()
+app.getInitRouter() P2
 	none
 	{}
