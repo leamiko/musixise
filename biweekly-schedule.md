@@ -42,11 +42,14 @@
     * 内测调试 
   * operation:
     * CC talk
+    * 
+
 #### 08.15 - 08.28
   * tech:
     * 内测调试
   * operation:
     * other talk 
+
 #### 08.29 - 09.11
   * tech: 
     * 9.8 上线，申请app store
