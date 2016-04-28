@@ -30,12 +30,12 @@ musixiser.login
 
 #音乐人开始演出 P0
 musixiser.onStage
-	token
+	token timestamp
 	workId
 
 #音乐人中止演出 P0
 musixiser.offStage
-	token,workId
+	token,workId timestamp
 
 #音乐人登出 P0
 musixiser.logout
@@ -75,21 +75,21 @@ audience.getOnStageList
 	
 #用户进入某演出 P1
 audience.joinStage()
-	audienceCookie,musixiserId
+	audienceCookie,musixiserId, timestamp
 
 #用户离开某演出 P1
 audience.leaveStage()
-	audienceCookie,musixiserInfo
+	audienceCookie,musixiserInfo, timestamp
 
 #用户订阅/跟随 某位音乐人 P2
 audience.subscribeToMusixiser()
 	audienceInfo,musixiserInfo
 
-#获取用户订阅的音乐人列表 P2
+#获取用户订阅的音乐人列表 P2    (体现上次最近上次登录时间)
 audience.getSubscribedMusixiserList()
 	audienceInfo
 
-#获取某个音乐人的过往作品 P2
+#获取某个音乐人的过往作品 P2  （或者叫获取某个音乐人的一些信息，如上次登录时间，作品列表，等等）
 audience.getWorksListOfSubscribedMusixiser()
 	musixiserInfo
 
