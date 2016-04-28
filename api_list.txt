@@ -85,7 +85,7 @@ audience.leaveStage()
 audience.subscribeToMusixiser()
 	audienceInfo,musixiserInfo
 
-#获取用户订阅的音乐人列表 P2    (体现上次最近上次登录时间)
+#获取用户订阅的音乐人列表 P2    (是否在线，未在线需要上次上线时间)
 audience.getSubscribedMusixiserList()
 	audienceInfo
 
